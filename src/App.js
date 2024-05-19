@@ -45,11 +45,12 @@ const images = [
   { src: "https://picsum.photos/id/1055/500/300", alt: "Image 8", tag: "c" },
   { src: "https://picsum.photos/id/1056/500/300", alt: "Image 9", tag: "a" },
   { src: "https://picsum.photos/id/1057/500/300", alt: "Image 10", tag: "b" },
+  {
+    src: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    alt: "Video 11",
+    tag: "video",
+  },
 ];
-
-const masonryOptions = {
-  transitionDuration: 0,
-};
 
 const breakpointColumnsObj = {
   default: 4,
@@ -75,9 +76,9 @@ function App() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map(({ src, alt }) => (
+        {images.map(({ src, alt, tag }) => (
           <div key={src} className="my-masonry-grid_item">
-            <img src={src} alt={alt} />
+            <img src={src} alt={alt} tag={tag} />
           </div>
         ))}
       </Masonry>
