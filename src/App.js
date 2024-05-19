@@ -54,9 +54,18 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
+const Title = () => {
+  return (
+    <div className="title">
+      <h1>Dronef Vatias</h1>
+    </div>
+  );
+};
+
 function App() {
   return (
     <div className="App">
+      <Title />
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

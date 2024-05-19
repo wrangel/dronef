@@ -34,3 +34,11 @@
 body {
   background-color: black;
 }
+
+.title {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  padding: 10px;
+  color: white;
+}
