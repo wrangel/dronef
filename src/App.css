@@ -1,38 +1,32 @@
-.App {
-  text-align: center;
+.my-masonry-grid {
+  display: -ms-flexbox; /* 1 */
+  display: flex; /* 2 */
+  -ms-flex-wrap: wrap; /* 3 */
+  flex-wrap: wrap; /* 4 */
+  margin-left: -15px; /* 5 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* clearfix */
+.my-masonry-grid:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.my-masonry-grid_column {
+  width: 20%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.my-masonry-grid_item {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.my-masonry-grid_item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
