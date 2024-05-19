@@ -1,11 +1,13 @@
-import logo from "./assets/1.jpg";
+import photo from "./assets/1.jpg";
 import "./App.css";
 
 function App() {
+  const photos = [{ src: photo, alt: "./assets/1.jpg" }];
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={photos[0]} className="App-photo" alt="lala" />
         <p>First page</p>
         <a
           className="App-link"
