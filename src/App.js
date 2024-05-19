@@ -76,11 +76,21 @@ function App() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map(({ src, alt, tag }) => (
-          <div key={src} className="my-masonry-grid_item">
-            <img src={src} alt={alt} tag={tag} />
-          </div>
-        ))}
+        {images.map(({ src, alt, tag }) => {
+          if (tag === "video") {
+            return (
+              <div key={src} className="my-masonry-grid_item">
+                <video src={src} alt={alt} controls />
+              </div>
+            );
+          } else {
+            return (
+              <div key={src} className="my-masonry-grid_item">
+                <img src={src} alt={alt} />
+              </div>
+            );
+          }
+        })}
       </Masonry>
     </div>
   );
