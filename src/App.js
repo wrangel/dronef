@@ -46,6 +46,7 @@ const images = [
   { src: "https://picsum.photos/id/1056/500/300", alt: "Image 9", tag: "a" },
   { src: "https://picsum.photos/id/1057/500/300", alt: "Image 10", tag: "b" },
   {
+    thumbnail: "https://picsum.photos/id/1058/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
     src: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     alt: "Video 11",
     tag: "video",
