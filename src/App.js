@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import "./App.css";
 import VideoPopup from "./components/VideoPopup";
@@ -68,34 +68,42 @@ const Title = () => {
 };
 
 function App() {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className="App">
       <Title />
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map((image, index) => {
-          if (image.tag === "video") {
+        {images.map(({ src, alt, tag, thumbnail }) => {
+          if (tag === "video") {
             return (
-              <div key={index} className="my-masonry-grid_item">
-                <img
-                  src={image.thumbnail}
-                  alt={image.alt}
-                  onClick={() => {
-                    // open video in popup
-                    const videoUrl = image.src;
-                    const popup = window.open(videoUrl, "_blank");
-                    popup.focus();
-                  }}
-                />
+              <div key={src} className="my-masonry-grid_item">
+                <img src={thumbnail} alt={alt} onClick={handleModalOpen} />
+
+                {isModalOpen && (
+                  <VideoPopup onClose={handleModalClose}>
+                    <video src={src} alt={alt} controls />
+                  </VideoPopup>
+                )}
               </div>
             );
           } else {
             return (
-              <div key={index} className="my-masonry-grid_item">
-                <img src={image.src} alt={image.alt} />
+              <div key={src} className="my-masonry-grid_item">
+                <img src={src} alt={alt} />
               </div>
             );
           }
