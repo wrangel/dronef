@@ -1,6 +1,7 @@
 import React from "react";
 import Masonry from "react-masonry-css";
 import "./App.css";
+import VideoPopup from "./components/VideoPopup";
 
 const images = [
   { src: "https://picsum.photos/id/1015/500/300", alt: "Image 1", tag: "a" },
