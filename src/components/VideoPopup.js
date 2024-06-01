@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 function VideoPopup({ children, onClose }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+
+      videoRef.current.addEventListener("ended", () => {
+        videoRef.current.play();
+      });
+    }
+  }, [videoRef]);
+
   return (
     <div style={styles.overlay}>
       <div style={styles.modal}>
-        {children}
+        <video
+          ref={videoRef}
+          src={children.props.src}
+          alt={children.props.alt}
+          controls
+        />
+
         <button style={styles.closeButton} onClick={onClose}>
           X
         </button>
