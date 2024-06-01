@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import "./App.css";
 import VideoPopup from "./components/VideoPopup";
+import ImagePopup from "./components/ImagePopup";
 
 const images = [
   { src: "https://picsum.photos/id/1015/500/300", alt: "Image 1", tag: "a" },
@@ -76,12 +77,18 @@ const Title = () => {
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleModalOpen = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleModalOpen = (image) => {
+    setSelectedImage(image);
+
     setModalOpen(true);
   };
 
   const handleModalClose = () => {
     setModalOpen(false);
+
+    setSelectedImage(null);
   };
 
   return (
@@ -97,11 +104,19 @@ function App() {
           if (tag === "video") {
             return (
               <div key={src} className="my-masonry-grid_item">
-                <img src={thumbnail} alt={alt} onClick={handleModalOpen} />
+                <img
+                  src={thumbnail}
+                  alt={alt}
+                  onClick={() => handleModalOpen({ src, alt, tag })}
+                />
 
-                {isModalOpen && (
+                {isModalOpen && selectedImage.tag === "video" && (
                   <VideoPopup onClose={handleModalClose}>
-                    <video src={src} alt={alt} controls />
+                    <video
+                      src={selectedImage.src}
+                      alt={selectedImage.alt}
+                      controls
+                    />
                   </VideoPopup>
                 )}
               </div>
@@ -109,7 +124,17 @@ function App() {
           } else {
             return (
               <div key={src} className="my-masonry-grid_item">
-                <img src={src} alt={alt} />
+                <img
+                  src={src}
+                  alt={alt}
+                  onClick={() => handleModalOpen({ src, alt, tag })}
+                />
+
+                {isModalOpen && selectedImage.tag !== "video" && (
+                  <ImagePopup onClose={handleModalClose} image={selectedImage}>
+                    <img src={selectedImage.src} alt={selectedImage.alt} />
+                  </ImagePopup>
+                )}
               </div>
             );
           }
