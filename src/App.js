@@ -76,20 +76,27 @@ const Title = () => {
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
-
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleModalOpen = (image) => {
     setSelectedImage(image);
-
     setModalOpen(true);
+    document.addEventListener("keydown", handleEscapeKey);
   };
 
   const handleModalClose = () => {
     setModalOpen(false);
-
     setSelectedImage(null);
+    document.removeEventListener("keydown", handleEscapeKey);
   };
+
+  const handleEscapeKey = (event) => {
+    if (event.key === "Escape" || event.keyCode === 27) {
+      handleModalClose();
+    }
+  };
+
+  //... rest of the code remains the same...
 
   return (
     <div className="App">
