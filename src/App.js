@@ -50,6 +50,12 @@ const images = [
     alt: "Video 11",
     tag: "video",
   },
+  {
+    thumbnail: "https://picsum.photos/id/1059/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
+    src: "https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg",
+    alt: "pano 12",
+    tag: "panorama",
+  },
 ];
 
 const breakpointColumnsObj = {
