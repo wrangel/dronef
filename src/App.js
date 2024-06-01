@@ -3,6 +3,8 @@ import Masonry from "react-masonry-css";
 import "./App.css";
 import VideoPopup from "./components/VideoPopup";
 import ImagePopup from "./components/ImagePopup";
+import PanoramaPopup from "./components/PanoramaPopup";
+import PanoramaViewer from "./components/PanoramaViewer";
 
 const images = [
   { src: "https://picsum.photos/id/1015/500/300", alt: "Image 1", tag: "a" },
@@ -52,7 +54,8 @@ const images = [
     tag: "video",
   },
   {
-    thumbnail: "https://picsum.photos/id/1059/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
+    thumbnail:
+      "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg", // Comes too from Amazon (all thumbnails are handled in another program)
     src: "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg",
     alt: "pano 1",
     tag: "panorama",
@@ -125,6 +128,25 @@ function App() {
                       controls
                     />
                   </VideoPopup>
+                )}
+              </div>
+            );
+          } else if (tag === "panorama") {
+            return (
+              <div key={src} className="my-masonry-grid_item">
+                <img
+                  src={thumbnail}
+                  alt={alt}
+                  onClick={() => handleModalOpen({ src, alt, tag })}
+                />
+
+                {isModalOpen && selectedImage.tag === "panorama" && (
+                  <PanoramaPopup
+                    onClose={handleModalClose}
+                    image={selectedImage}
+                  >
+                    <PanoramaViewer src={selectedImage.src} />
+                  </PanoramaPopup>
                 )}
               </div>
             );

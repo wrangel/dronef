@@ -1,4 +1,4 @@
-import PanoramaViewer from "PanoramaViewer.js";
+import PanoramaViewer from "./PanoramaViewer";
 
 const PanoramaPopup = ({ onClose, image }) => {
   return (
