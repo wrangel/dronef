@@ -1,5 +1,3 @@
-//import photo from "./assets/1.jpg";
-
 import React from "react";
 import Masonry from "react-masonry-css";
 import "./App.css";
@@ -77,17 +75,26 @@ function App() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map(({ src, alt, tag }) => {
-          if (tag === "video") {
+        {images.map((image, index) => {
+          if (image.tag === "video") {
             return (
-              <div key={src} className="my-masonry-grid_item">
-                <video src={src} alt={alt} controls />
+              <div key={index} className="my-masonry-grid_item">
+                <img
+                  src={image.thumbnail}
+                  alt={image.alt}
+                  onClick={() => {
+                    // open video in popup
+                    const videoUrl = image.src;
+                    const popup = window.open(videoUrl, "_blank");
+                    popup.focus();
+                  }}
+                />
               </div>
             );
           } else {
             return (
-              <div key={src} className="my-masonry-grid_item">
-                <img src={src} alt={alt} />
+              <div key={index} className="my-masonry-grid_item">
+                <img src={image.src} alt={image.alt} />
               </div>
             );
           }
