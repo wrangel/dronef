@@ -48,13 +48,13 @@ const images = [
   {
     thumbnail: "https://picsum.photos/id/1058/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
     src: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    alt: "Video 11",
+    alt: "Video 1",
     tag: "video",
   },
   {
     thumbnail: "https://picsum.photos/id/1059/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
-    src: "https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/alma.jpg",
-    alt: "pano 12",
+    src: "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg",
+    alt: "pano 1",
     tag: "panorama",
   },
 ];
