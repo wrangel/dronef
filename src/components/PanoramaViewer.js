@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 
 const PanoramaViewer = ({ src }) => {
-  const panoramaContainer = React.useRef();
+  const panoramaContainer = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -37,13 +37,15 @@ const PanoramaViewer = ({ src }) => {
 
     animate();
 
-    // Clean up
+    // Cleanup function
     return () => {
-      panoramaContainer.current.removeChild(renderer.domElement);
-      scene.clear();
-      panoramaTexture.dispose();
-      panoramaMaterial.dispose();
-      sphereGeometry.dispose();
+      if (panoramaContainer.current) {
+        panoramaContainer.current.removeChild(renderer.domElement);
+        scene.clear();
+        panoramaTexture.dispose();
+        panoramaMaterial.dispose();
+        sphereGeometry.dispose();
+      }
     };
   }, [src]);
 
