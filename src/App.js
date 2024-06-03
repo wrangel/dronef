@@ -99,8 +99,6 @@ function App() {
     }
   };
 
-  //... rest of the code remains the same...
-
   return (
     <div className="App">
       <Title />
