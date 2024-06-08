@@ -4,7 +4,6 @@ import "./App.css";
 import VideoPopup from "./components/VideoPopup";
 import ImagePopup from "./components/ImagePopup";
 import PanoramaPopup from "./components/PanoramaPopup";
-import PanoramaViewer from "./components/PanoramaViewer";
 
 const images = [
   { src: "https://picsum.photos/id/1015/500/300", alt: "Image 1", tag: "a" },
@@ -108,63 +107,35 @@ function App() {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {images.map(({ src, alt, tag, thumbnail }) => {
-          if (tag === "video") {
-            return (
-              <div key={src} className="my-masonry-grid_item">
-                <img
-                  src={thumbnail}
-                  alt={alt}
-                  onClick={() => handleModalOpen({ src, alt, tag })}
-                />
-
-                {isModalOpen && selectedImage.tag === "video" && (
-                  <VideoPopup onClose={handleModalClose}>
-                    <video
-                      src={selectedImage.src}
-                      alt={selectedImage.alt}
-                      controls
-                    />
-                  </VideoPopup>
-                )}
-              </div>
-            );
-          } else if (tag === "panorama") {
-            return (
-              <div key={src} className="my-masonry-grid_item">
-                <img
-                  src={thumbnail}
-                  alt={alt}
-                  onClick={() => handleModalOpen({ src, alt, tag })}
-                />
-
-                {isModalOpen && selectedImage.tag === "panorama" && (
-                  <PanoramaPopup
-                    onClose={handleModalClose}
-                    image={selectedImage}
-                  />
-                )}
-              </div>
-            );
-          } else {
-            return (
-              <div key={src} className="my-masonry-grid_item">
-                <img
-                  src={src}
-                  alt={alt}
-                  onClick={() => handleModalOpen({ src, alt, tag })}
-                />
-
-                {isModalOpen && selectedImage.tag !== "video" && (
-                  <ImagePopup onClose={handleModalClose} image={selectedImage}>
-                    <img src={selectedImage.src} alt={selectedImage.alt} />
-                  </ImagePopup>
-                )}
-              </div>
-            );
-          }
-        })}
+        {images.map(({ src, alt, tag, thumbnail }) => (
+          <div key={src} className="my-masonry-grid_item">
+            <img
+              src={thumbnail || src}
+              alt={alt}
+              onClick={() => handleModalOpen({ src, alt, tag })}
+            />
+          </div>
+        ))}
       </Masonry>
+
+      {isModalOpen && selectedImage && (
+        <>
+          {selectedImage.tag === "video" && (
+            <VideoPopup onClose={handleModalClose}>
+              <video src={selectedImage.src} alt={selectedImage.alt} controls />
+            </VideoPopup>
+          )}
+          {selectedImage.tag === "panorama" && (
+            <PanoramaPopup onClose={handleModalClose} image={selectedImage} />
+          )}
+          {selectedImage.tag !== "video" &&
+            selectedImage.tag !== "panorama" && (
+              <ImagePopup onClose={handleModalClose} image={selectedImage}>
+                <img src={selectedImage.src} alt={selectedImage.alt} />
+              </ImagePopup>
+            )}
+        </>
+      )}
     </div>
   );
 }
