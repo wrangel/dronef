@@ -142,9 +142,7 @@ function App() {
                   <PanoramaPopup
                     onClose={handleModalClose}
                     image={selectedImage}
-                  >
-                    <PanoramaViewer src={selectedImage.src} />
-                  </PanoramaPopup>
+                  />
                 )}
               </div>
             );

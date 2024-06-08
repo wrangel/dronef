@@ -1,34 +1,32 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import * as THREE from "three";
 
-const PanoramaViewer = ({ src }) => {
-  const panoramaContainer = useRef(null);
+const PanoramaViewer = ({ src, width, height }) => {
+  const ref = React.createRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    panoramaContainer.current.appendChild(renderer.domElement);
-
-    const textureLoader = new THREE.TextureLoader();
-    const panoramaTexture = textureLoader.load(src);
-    const panoramaMaterial = new THREE.MeshBasicMaterial({
-      map: panoramaTexture,
-      side: THREE.BackSide,
-      envMap: renderer.domElement,
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+      canvas: ref.current,
+      antialias: true,
     });
 
-    const sphereGeometry = new THREE.SphereGeometry(500, 60, 40);
-    const panoramaMesh = new THREE.Mesh(sphereGeometry, panoramaMaterial);
-    scene.add(panoramaMesh);
+    const manager = new THREE.LoadingManager();
+    const textureLoader = new THREE.TextureLoader(manager);
 
-    camera.position.z = 1000;
+    const panoramaTexture = textureLoader.load(src);
+    panoramaTexture.minFilter = THREE.LinearFilter;
+    panoramaTexture.magFilter = THREE.LinearFilter;
+    panoramaTexture.format = THREE.RGBFormat;
+
+    const geometry = new THREE.SphereGeometry(100, 60, 60);
+    const material = new THREE.MeshBasicMaterial({ map: panoramaTexture });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    scene.add(mesh);
+
+    camera.position.z = 0.1;
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -36,28 +34,18 @@ const PanoramaViewer = ({ src }) => {
     };
 
     animate();
-
-    // Cleanup function
-    return () => {
-      if (panoramaContainer.current) {
-        panoramaContainer.current.removeChild(renderer.domElement);
-        scene.clear();
-        panoramaTexture.dispose();
-        panoramaMaterial.dispose();
-        sphereGeometry.dispose();
-      }
-    };
-  }, [src]);
+  }, [ref, src, width, height]);
 
   return (
     <div
-      ref={panoramaContainer}
       style={{
-        width: "100%",
-        height: "100vh",
+        width,
+        height,
         overflow: "hidden",
       }}
-    />
+    >
+      <canvas ref={ref} />
+    </div>
   );
 };
 
