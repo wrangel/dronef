@@ -1,14 +1,40 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+  overflow-x: hidden; /* Ensure no horizontal scroll */
+}
+
+.App {
+  padding: 20px;
+  position: relative; /* Ensure title is positioned within the App */
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000; /* Ensure the title is on top of other elements */
+}
+
 .my-masonry-grid {
   display: flex;
   margin-left: -30px; /* gutter size offset */
   width: auto;
+  padding-top: 100px; /* Add padding to prevent overlap with the title */
 }
+
 .my-masonry-grid_column {
   padding-left: 30px; /* gutter size */
   background-clip: padding-box;
 }
 
-/* Style your images */
 .grid-item {
   margin-bottom: 30px; /* gutter size */
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  display: block;
 }
