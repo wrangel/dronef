@@ -3,6 +3,7 @@ import "./App.css";
 import VideoPopup from "./components/VideoPopup";
 import ImagePopup from "./components/ImagePopup";
 import PanoramaPopup from "./components/PanoramaPopup";
+import Masonry from "react-masonry-css";
 
 const images = [
   { src: "https://picsum.photos/id/1015/400/800", alt: "Image 1", tag: "a" },
@@ -90,11 +91,21 @@ function App() {
     }
   };
 
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
+  };
+
   return (
     <div className="App">
       <Title />
-
-      <div className="grid">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {images.map(({ src, alt, tag, thumbnail }) => (
           <div key={src} className="grid-item">
             <img
@@ -104,7 +115,7 @@ function App() {
             />
           </div>
         ))}
-      </div>
+      </Masonry>
 
       {isModalOpen && selectedImage && (
         <>

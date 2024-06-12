@@ -1,36 +1,14 @@
-/* Set the background color for the entire app */
-.App {
-  background-color: black;
-  padding: 20px;
-}
-
-/* Style the title */
-.title {
-  text-align: center;
-  margin: 20px 0;
-  color: white;
-}
-
-/* Grid container */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 10px;
-}
-
-/* Grid items */
-.grid-item {
+.my-masonry-grid {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #333; /* Optional: to show a border-like effect around images */
-  padding: 5px; /* Adjust as necessary */
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
 }
 
-/* Images */
-.grid-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 5px; /* Optional: rounded corners */
+/* Style your images */
+.grid-item {
+  margin-bottom: 30px; /* gutter size */
 }
