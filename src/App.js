@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Masonry from "react-masonry-css";
 import "./App.css";
 import VideoPopup from "./components/VideoPopup";
 import ImagePopup from "./components/ImagePopup";
@@ -44,29 +43,22 @@ const images = [
   { src: "https://picsum.photos/id/1053/600/390", alt: "Image 6", tag: "a" },
   { src: "https://picsum.photos/id/1054/400/90", alt: "Image 7", tag: "b" },
   { src: "https://picsum.photos/id/1055/445/300", alt: "Image 8", tag: "c" },
-  { src: "https://picsum.photos/id/1056/50/2300", alt: "Image 9", tag: "a" },
+  { src: "https://picsum.photos/id/1056/50/200", alt: "Image 9", tag: "a" },
   { src: "https://picsum.photos/id/1057/500/300", alt: "Image 10", tag: "b" },
   {
-    thumbnail: "https://picsum.photos/id/1058/500/300", // Comes too from Amazon (all thumbnails are handled in another program)
+    thumbnail: "https://picsum.photos/id/1058/500/300",
     src: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     alt: "Video 1",
     tag: "video",
   },
   {
     thumbnail:
-      "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg", // Comes too from Amazon (all thumbnails are handled in another program)
+      "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg",
     src: "https://static.vecteezy.com/system/resources/previews/010/015/888/non_2x/full-seamless-spherical-hdri-panorama-360-degrees-angle-view-on-gravel-road-among-fields-in-summer-evening-sunset-with-awesome-clouds-in-equirectangular-projection-ready-vr-ar-virtual-reality-content-photo.jpg",
     alt: "pano 1",
     tag: "panorama",
   },
 ];
-
-const breakpointColumnsObj = {
-  default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
-};
 
 const Title = () => {
   return (
@@ -102,13 +94,9 @@ function App() {
     <div className="App">
       <Title />
 
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
+      <div className="grid">
         {images.map(({ src, alt, tag, thumbnail }) => (
-          <div key={src} className="my-masonry-grid_item">
+          <div key={src} className="grid-item">
             <img
               src={thumbnail || src}
               alt={alt}
@@ -116,7 +104,7 @@ function App() {
             />
           </div>
         ))}
-      </Masonry>
+      </div>
 
       {isModalOpen && selectedImage && (
         <>

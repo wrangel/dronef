@@ -1,44 +1,36 @@
-.my-masonry-grid {
-  display: -ms-flexbox; /* 1 */
-  display: flex; /* 2 */
-  -ms-flex-wrap: wrap; /* 3 */
-  flex-wrap: wrap; /* 4 */
-  margin-left: -15px; /* 5 */
+/* Set the background color for the entire app */
+.App {
+  background-color: black;
+  padding: 20px;
 }
 
-/* clearfix */
-.my-masonry-grid:after {
-  content: "";
-  display: block;
-  clear: both;
+/* Style the title */
+.title {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
 }
 
-.my-masonry-grid_column {
-  width: 20%;
-  padding: 15px;
-  box-sizing: border-box;
+/* Grid container */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
 }
 
-.my-masonry-grid_item {
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
+/* Grid items */
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333; /* Optional: to show a border-like effect around images */
+  padding: 5px; /* Adjust as necessary */
 }
 
-.my-masonry-grid_item img {
+/* Images */
+.grid-item img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-body {
-  background-color: black;
-}
-
-.title {
-  position: sticky;
-  top: 0;
-  background-color: black;
-  padding: 10px;
-  color: white;
+  border-radius: 5px; /* Optional: rounded corners */
 }

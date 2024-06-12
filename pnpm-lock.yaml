@@ -17,6 +17,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-grid-layout:
+        specifier: ^1.4.4
+        version: 1.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-masonry-css:
         specifier: ^1.0.16
         version: 1.0.16(react@18.3.1)
@@ -1818,6 +1821,14 @@ packages:
   cliui@7.0.4:
     resolution: {integrity: sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==}
 
+  clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
+
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
@@ -2546,6 +2557,9 @@ packages:
 
   fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+
+  fast-equals@4.0.3:
+    resolution: {integrity: sha512-G3BSX9cfKttjr+2o1O22tYMLq0DPluZnYtq1rXumE1SpL/F/SLIfHx08WYQoWSIpeMYf8sRbJ8++71+v6Pnxfg==}
 
   fast-glob@3.3.2:
     resolution: {integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==}
@@ -4366,11 +4380,23 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-draggable@4.4.6:
+    resolution: {integrity: sha512-LtY5Xw1zTPqHkVmtM3X8MUOxNDOUhv/khTgBgrUvwaS064bwVvxT+q5El0uUFNx5IEPKXuRejr7UqLwBIg5pdw==}
+    peerDependencies:
+      react: '>= 16.3.0'
+      react-dom: '>= 16.3.0'
+
   react-error-overlay@6.0.11:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
 
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+
+  react-grid-layout@1.4.4:
+    resolution: {integrity: sha512-7+Lg8E8O8HfOH5FrY80GCIR1SHTn2QnAYKh27/5spoz+OHhMmEhU/14gIkRzJOtympDPaXcVRX/nT1FjmeOUmQ==}
+    peerDependencies:
+      react: '>= 16.3.0'
+      react-dom: '>= 16.3.0'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -4396,6 +4422,11 @@ packages:
   react-refresh@0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
+
+  react-resizable@3.0.5:
+    resolution: {integrity: sha512-vKpeHhI5OZvYn82kXOs1bC8aOXktGU5AmKAgaZS4F5JPburCtbmDPqE7Pzp+1kN4+Wb81LlF33VpGwWwtXem+w==}
+    peerDependencies:
+      react: '>= 16.3'
 
   react-scripts@5.0.1:
     resolution: {integrity: sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ==}
@@ -4495,6 +4526,9 @@ packages:
 
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+
+  resize-observer-polyfill@1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
   resolve-cwd@3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}
@@ -7616,6 +7650,10 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
+  clsx@1.2.1: {}
+
+  clsx@2.1.1: {}
+
   co@4.6.0: {}
 
   coa@2.0.2:
@@ -8487,6 +8525,8 @@ snapshots:
       - supports-color
 
   fast-deep-equal@3.1.3: {}
+
+  fast-equals@4.0.3: {}
 
   fast-glob@3.3.2:
     dependencies:
@@ -10570,9 +10610,27 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-draggable@4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   react-error-overlay@6.0.11: {}
 
   react-fast-compare@3.2.2: {}
+
+  react-grid-layout@1.4.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 2.1.1
+      fast-equals: 4.0.3
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-draggable: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-resizable: 3.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      resize-observer-polyfill: 1.5.1
 
   react-is@16.13.1: {}
 
@@ -10593,6 +10651,14 @@ snapshots:
       warning: 4.0.3
 
   react-refresh@0.11.0: {}
+
+  react-resizable@3.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-draggable: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - react-dom
 
   react-scripts@5.0.1(@babel/plugin-syntax-flow@7.24.6(@babel/core@7.24.6))(@babel/plugin-transform-react-jsx@7.24.6(@babel/core@7.24.6))(@types/babel__core@7.20.5)(eslint@8.57.0)(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5):
     dependencies:
@@ -10794,6 +10860,8 @@ snapshots:
   require-from-string@2.0.2: {}
 
   requires-port@1.0.0: {}
+
+  resize-observer-polyfill@1.5.1: {}
 
   resolve-cwd@3.0.0:
     dependencies:
