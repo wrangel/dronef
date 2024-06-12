@@ -105,6 +105,7 @@ function App() {
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
+        columnWidth={300} // Adjust this value according to your design
       >
         {images.map(({ src, alt, tag, thumbnail }) => (
           <div key={src} className="grid-item">
