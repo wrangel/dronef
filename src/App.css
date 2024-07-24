@@ -17,14 +17,14 @@
   width: 20%;
   padding: 5px; /* reduced vertical distance */
   box-sizing: border-box;
-  margin: 0 10px; /* introduced horizontal distance */
+  margin: 0 2px; /* introduced horizontal distance */
 }
 
 .my-masonry-grid_item {
   width: 100%;
   display: block;
   box-sizing: border-box;
-  margin-bottom: 5px; /* reduced vertical distance */
+  margin-bottom: 15px; /* reduced vertical distance */
 }
 
 .my-masonry-grid_item img {
