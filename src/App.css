@@ -15,20 +15,25 @@
 
 .my-masonry-grid_column {
   width: 20%;
-  padding: 15px;
+  padding: 5px; /* reduced vertical distance */
   box-sizing: border-box;
+  margin: 0 10px; /* introduced horizontal distance */
 }
 
 .my-masonry-grid_item {
   width: 100%;
   display: block;
   box-sizing: border-box;
+  margin-bottom: 5px; /* reduced vertical distance */
 }
 
 .my-masonry-grid_item img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover; /* crop images to a reasonable aspect ratio */
+  aspect-ratio: 16/9; /* set a maximum aspect ratio */
+  max-height: 300px; /* set a maximum height */
 }
 
 body {
